@@ -54,6 +54,27 @@ namespace Payroll_Service_ADO_database
             }
         }
 
+        //UC3- Insert
+        public static void InsertDatebase()
+        {
+            try
+            {
+                string query = "Insert into employee_payroll values('a','1000','2018-01-01');";
+                SqlCommand cmd = new SqlCommand(query, connection);
+                connection.Open();
+                cmd.ExecuteNonQuery();
+                Console.WriteLine("Date Inserted Suucessfully");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Something went wrong"+ ex.GetType);
+            }
+            finally
+            {
+                connection.Close();
+            }
+        }
+
     }
     
 }

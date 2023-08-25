@@ -17,7 +17,8 @@ internal class Program
 
         Console.WriteLine("Payroll_service!");
         //Payroll_Service_Operation.CreateDatabase();
-        Payroll_Service_Operation.CreateTable();
+        //Payroll_Service_Operation.CreateTable();
+        Payroll_Service_Operation.InsertDatebase();
 
 
     }
