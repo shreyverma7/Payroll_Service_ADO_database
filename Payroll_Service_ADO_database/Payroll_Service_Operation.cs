@@ -114,6 +114,27 @@ namespace Payroll_Service_ADO_database
             }
             return false;
         }
+        //UC5- Retrive between date
+        public static void RetriveBetweenDatebase()
+        {
+            try
+            {
+                string query = "Select * from employee_payroll where start_date between cast('2018-01-01' as date) and GETDATE();";
+                SqlCommand cmd = new SqlCommand(query, connection);
+                connection.Open();
+                cmd.ExecuteNonQuery();
+                Console.WriteLine("Query Suucessfully");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Something went wrong" + ex.GetType);
+            }
+            finally
+            {
+                connection.Close();
+
+            }
+        }
 
     }
     
