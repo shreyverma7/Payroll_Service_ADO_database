@@ -30,6 +30,30 @@ namespace Payroll_Service_ADO_database
                 connection.Close();
             }
         }
-        
+        public static SqlConnection connection = new SqlConnection("data source= (localdb)\\MSSQLLocalDB; initial catalog=Payroll_Service_ADO; integrated security=true");
+
+        //UC2 create table
+        public static void CreateTable()
+        {
+            try
+            {
+                string query = "Create table employee_payroll(\r\nid int primary key identity(1,1),\r\nname varchar(30),\r\nsalary varchar(30),\r\nstart_date date);";
+                SqlCommand cmd = new SqlCommand(query, connection);
+                // CommandType type = CommandType.Text;
+                connection.Open();
+                cmd.ExecuteNonQuery();
+                Console.WriteLine("Table  Created Suucessfully");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Date Not Updated");
+            }
+            finally
+            {
+                connection.Close();
+            }
+        }
+
     }
+    
 }

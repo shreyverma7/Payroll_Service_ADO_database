@@ -4,7 +4,6 @@ internal class Program
 {
     private static void Main(string[] args)
     {
-        Console.WriteLine("Payroll_service!");
         //Console.WriteLine("(localdb)\\MSSQLLocalDB");
         //PersonOperation.updateDatebase();
         //PersonOperation.DeleteDatebase();
@@ -14,7 +13,11 @@ internal class Program
         // PersonOperation.CreateTable();
 
         ///  Payroll_Service_Operation payroll_Service_Operation = new Payroll_Service_Operation();
-        Payroll_Service_Operation.CreateDatabase();
+        ///  
+
+        Console.WriteLine("Payroll_service!");
+        //Payroll_Service_Operation.CreateDatabase();
+        Payroll_Service_Operation.CreateTable();
 
 
     }
