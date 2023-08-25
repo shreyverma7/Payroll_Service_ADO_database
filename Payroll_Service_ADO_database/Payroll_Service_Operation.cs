@@ -74,6 +74,46 @@ namespace Payroll_Service_ADO_database
                 connection.Close();
             }
         }
+        //UC4-ReAD
+        public static bool ReadFromDatabase()
+        {
+            try
+            {
+                using (connection)
+                {
+                    payroll_Model model = new payroll_Model();
+                    string query = "Select * from employee_payroll ";
+                    SqlCommand cmd = new SqlCommand(query, connection);
+                    connection.Open();
+                    SqlDataReader reader = cmd.ExecuteReader();
+                    if (reader.HasRows)
+                    {
+                        Console.WriteLine("--------Data--------");
+                        while (reader.Read())
+                        {
+                            model.Id = Convert.ToInt32(reader["id"]);
+                            model.Name = Convert.ToString(reader["name"]);
+                            model.Salary = Convert.ToString(reader["salary"]);
+                            model.Date = Convert.ToString(reader["start_date"]);
+                            
+
+                            Console.WriteLine("Id : {0}\n Name: {1}\n Salary: {2}\n Date: {3}", model.Id, model.Name, model.Salary, model.Date);
+                        }
+                    }
+                    return true;
+                }
+            }
+            catch (Exception ex)
+            {
+
+                Console.WriteLine("Something went wrong" + ex);
+            }
+            finally
+            {
+                connection.Close();
+            }
+            return false;
+        }
 
     }
     
