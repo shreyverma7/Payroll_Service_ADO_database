@@ -135,7 +135,27 @@ namespace Payroll_Service_ADO_database
 
             }
         }
+        public static void Queryexecte(string query)
+        {
+            try
+            { 
+                SqlCommand cmd = new SqlCommand(query, connection);
+                connection.Open();
+                cmd.ExecuteNonQuery();
+                Console.WriteLine("Query Suucessfully");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Something went wrong" + ex.GetType);
+            }
+            finally
+            {
+                connection.Close();
+
+            }
+        }
+
 
     }
-    
+
 }

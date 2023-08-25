@@ -19,8 +19,12 @@ internal class Program
         //Payroll_Service_Operation.CreateDatabase();
         //Payroll_Service_Operation.CreateTable();
        // Payroll_Service_Operation.InsertDatebase();
-        Payroll_Service_Operation.ReadFromDatabase();
-        Payroll_Service_Operation.RetriveBetweenDatebase();
+       // Payroll_Service_Operation.ReadFromDatabase();
+       // Payroll_Service_Operation.RetriveBetweenDatebase();
+        string query = "Alter table employee_payroll\r\nAdd Gender Char(1);";
+        string query1 = "update employee_payroll set Gender = 'M' where id in (1,4);\r\nupdate employee_payroll set Gender = 'F' where id between 2 and 3;";
+        Payroll_Service_Operation.Queryexecte(query1);
+
 
 
     }
